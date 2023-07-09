@@ -54,8 +54,11 @@ class flightEvent{
 
 class facade{
 public:
-    int go(plane plane, route route, flightEvent flightEvent){
-        int time = route.lenght() / ((plane.speed * flightEvent.trigger())/100);
+    plane Plane;
+    route Route;
+    flightEvent FlightEvent;
+    int go(){
+        int time = Route.lenght() / ((Plane.speed * FlightEvent.trigger())/100);
         qDebug()<< "Время пути: "<<time;
         return time;
     }

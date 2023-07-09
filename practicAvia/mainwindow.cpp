@@ -9,9 +9,9 @@ MainWindow::MainWindow(QWidget *parent)
    // ui->comboBox->addItem("asd",1);
     p1.name = "Кукурузник";
     p1.speed = 200;
-    fe1.name = "Плохая погода";
-    fe1.speed_effect = 25;
-    fe1.chance = 25;
+    f.FlightEvent.speed_effect = 25;
+    f.FlightEvent.chance = 30;
+    f.FlightEvent.name = "Плохая погода";
     r1.name = "Город1 - Город2";
     r1.x1 = 0;
     r1.y1 = 0;
@@ -39,32 +39,27 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-
-    /*f.setPlane(p1,"Кукурузник",200);
-    f.setFlightEvent(fe1,"Плохая погода", 20,10);
-    f.setRoute(r1,"Город1-Город2",0,0,3000,4000);
-    f.go(p1, r1, fe1);*/
     switch(ui->comboBox->currentIndex()){
     case 0:
-        p = p1;
+        f.Plane = p1;
         ui->label->setText(QString::number(p.speed));
                 break;
     case 1:
-        p = p2;
+        f.Plane = p2;
         break;
 
     }
     switch(ui->comboBox_2->currentIndex()){
     case 0:
-        r = r1;
+        f.Route = r1;
                 break;
     case 1:
-        r = r2;
+        f.Route = r2;
         break;
 
     }
-    ui->label_2->setText(QString::number(p.speed));
-    ui->label_3->setText(QString::number(r.lenght()));
-     ui->label->setText(QString::number(f.go(p, r, fe1)));
+    ui->label_2->setText(QString::number(f.Plane.speed));
+    ui->label_3->setText(QString::number(f.Route.lenght()));
+     ui->label->setText(QString::number(f.go()));
 }
 
